@@ -31,14 +31,14 @@ void main( void ){
     ADCON2 = 0b10110110; 
     
     SetCGRamAddr(0x08);
-    putcXLCD(0b11111);
-    putcXLCD(0b10000);
-    putcXLCD(0b10000);
-    putcXLCD(0b10000);
-    putcXLCD(0b10000);
-    putcXLCD(0b10000);
-    putcXLCD(0b10000);
-    putcXLCD(0b11111);
+    putcXLCD(0b00001);
+    putcXLCD(0b00011);
+    putcXLCD(0b00111);
+    putcXLCD(0b01111);
+    putcXLCD(0b01111);
+    putcXLCD(0b00111);
+    putcXLCD(0b00011);
+    putcXLCD(0b00001);
 
     SetCGRamAddr(0x10);
     putcXLCD(0b11111);
@@ -51,14 +51,14 @@ void main( void ){
     putcXLCD(0b11111);
 
     SetCGRamAddr(0x18);
-    putcXLCD(0b11111);
-    putcXLCD(0b00001);
-    putcXLCD(0b00001);
-    putcXLCD(0b00001);
-    putcXLCD(0b00001);
-    putcXLCD(0b00001);
-    putcXLCD(0b00001);
-    putcXLCD(0b11111);
+    putcXLCD(0b10000);
+    putcXLCD(0b11000);
+    putcXLCD(0b11100);
+    putcXLCD(0b11110);
+    putcXLCD(0b11110);
+    putcXLCD(0b11100);
+    putcXLCD(0b11000);
+    putcXLCD(0b10000);
 
     OpenXLCD(FOUR_BIT & LINES_5X7); 
     
@@ -85,12 +85,12 @@ void main( void ){
         output = output%100; 
         putcXLCD(output/10 + '0'); 
         putrsXLCD(" V"); 
-        mark = (unsigned int)(tempR*10/MAX);
+        mark = (unsigned int)(tempR*8/MAX);
         putcXLCD(open);
         for (i = 0; i < mark; i++) {
             putcXLCD(mid);
         }
-        for (i = mark; i <= 10; i++) {
+        for (i = mark; i <= 8; i++) {
             putcXLCD(' ');
         }
         putcXLCD(close);
