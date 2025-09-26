@@ -74,7 +74,7 @@ void main( void ){
         Delay1KTCYx(80); 
         while(ADCON0bits.GO); // wait for ADC to finish 
         result = ((unsigned long)ADRESH << 8) | ADRESL; // last 2 bits of ADRESH, all 8 bits of ADRESL
-        tempR = result;
+        tempR = result & MAX;
         SetDDRamAddr(0x40); 
         result = result*488251+5000; 
         output = result/100000; 
